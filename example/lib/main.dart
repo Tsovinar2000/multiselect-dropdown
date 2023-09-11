@@ -67,8 +67,16 @@ class _MyHomePageState extends State<MyHomePage> {
               onOptionSelected: (options) {
                 debugPrint(options.toString());
               },
+              backgroundColor: Color(0xff0D0D0D),
+              selectedOptionBackgroundColor: Color(0xff0D0D0D),
+              inputDecoration:
+                  BoxDecoration(border: null, color: Color(0xff0D0D0D)),
+              optionsBackgroundColor: Color(0xff0D0D0D),
               options: const <ValueItem>[
-                ValueItem(label: 'Option 1', value: '1'),
+                ValueItem(
+                    label:
+                        'Option 1 1234567 asdfghj zxcvbnm 1234 dfghj 56789 dfghj 6789 dfghj',
+                    value: '1'),
                 ValueItem(label: 'Option 2', value: '2'),
                 ValueItem(label: 'Option 3', value: '3'),
                 ValueItem(label: 'Option 4', value: '4'),
@@ -76,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ValueItem(label: 'Option 6', value: '6'),
               ],
               maxItems: 4,
-              disabledOptions: const [ValueItem(label: 'Option 1', value: '1')],
+              // disabledOptions: const [ValueItem(label: 'Option 1', value: '1')],
               selectionType: SelectionType.multi,
               chipConfig: const ChipConfig(
                   wrapType: WrapType.wrap, backgroundColor: Colors.red),

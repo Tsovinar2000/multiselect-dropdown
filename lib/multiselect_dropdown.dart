@@ -443,7 +443,9 @@ class _MultiSelectDropDownState extends State<MultiSelectDropDown> {
             padding: _getContainerPadding(),
             decoration: _getContainerDecoration(),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: widget.showClearIcon && _anyItemSelected
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.center,
               children: [
                 Expanded(
                   child: _getContainerContent(),
@@ -451,9 +453,12 @@ class _MultiSelectDropDownState extends State<MultiSelectDropDown> {
                 widget.showClearIcon && _anyItemSelected
                     ? InkWell(
                         onTap: () => clear(),
-                        child: const Icon(
-                          Icons.close_outlined,
-                          size: 14,
+                        child: const Padding(
+                          padding: EdgeInsets.only(top: 15.0, left: 5),
+                          child: Icon(
+                            Icons.close_outlined,
+                            size: 19,
+                          ),
                         ),
                       )
                     : AnimatedRotation(
@@ -689,6 +694,7 @@ class _MultiSelectDropDownState extends State<MultiSelectDropDown> {
                         return widget.optionSeparator ??
                             const SizedBox(height: 0);
                       },
+                      physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       itemCount: options.length,
