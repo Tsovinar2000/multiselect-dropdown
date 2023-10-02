@@ -465,8 +465,10 @@ class _MultiSelectDropDownState extends State<MultiSelectDropDown> {
                         turns: _selectionMode ? 0.5 : 0,
                         duration: const Duration(milliseconds: 200),
                         child: Icon(
-                          widget.suffixIcon,
-                        )),
+                          Icons.arrow_drop_down_outlined,
+                          color: Color(0xffD5743E),
+                        ),
+                      ),
               ],
             ),
           ),
